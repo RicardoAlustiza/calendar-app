@@ -4,7 +4,7 @@ import { LogInPage } from '../auth';
 
 export const AppRouter = () => {
 
-    const authStatus = 'not-authenticated';
+    const authStatus = 'authenticated';
 
     return (
         
