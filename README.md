@@ -9,5 +9,5 @@ Currently, two official plugins are available:
 
 ## Development steps
 
-1- Rename the file `.env.template` to `.env`
-2- Update the variables
+1. Rename the file `.env.template` to `.env`
+2. Update the variables
