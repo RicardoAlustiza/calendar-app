@@ -17,9 +17,9 @@ export const useCalendarStore = () => {
     const startSavingEvent = async(calendarEvent) => {
 
         try {
-            if(activeEvent.id) {
+            if(calendarEvent.id) {
                 // Update event
-                await calendarApi.put(`/events/${activeEvent.id}`, calendarEvent);
+                await calendarApi.put(`/events/${calendarEvent.id}`, calendarEvent);
                 dispatch(onUpdateEvent({...calendarEvent, user}));
                 return;
             }
