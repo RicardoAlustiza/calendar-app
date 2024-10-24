@@ -17,7 +17,7 @@ const registerFormFields = {
 
 export const LogInPage = () => {
 
-    const { startLogIn, errorMessage } = useAuthStore();
+    const { startLogIn, startRegister, errorMessage } = useAuthStore();
 
     const { logInEmail, logInPassword, onInputChange: onLogInInputChange } = useForm(logInFormFields);
     const { registerName, registerEmail, registerPassword, registerConfirmPassword, onInputChange: onRegisterInputChange } = useForm(registerFormFields);             
@@ -31,7 +31,12 @@ export const LogInPage = () => {
     const registerSubmit = (event) => {
         event.preventDefault();
     
-        console.log({ registerName, registerEmail, registerPassword, registerConfirmPassword })
+        if(registerPassword !== registerConfirmPassword) {
+            Swal.fire('Error on registry', 'Passwords must be the same', 'error');
+            return;
+        }
+
+        startRegister({ name: registerName, email: registerEmail, password: registerPassword });
     }
 
     useEffect(() => {
